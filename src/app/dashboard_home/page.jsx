@@ -15,6 +15,7 @@ import { Users, Package, Home } from "lucide-react"
 import { Component as BarChart } from "@/components/section/chart.jsx";
 import { LineChartComponent as LineChart } from "@/components/section/line-chart.jsx";
 import { AreaChartComponent as AreaChart } from "@/components/section/area-chart.jsx";
+import Link from "next/link.js";
 
 export function AppSidebar() {
   return (
@@ -29,14 +30,19 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton>
-                  <Home className="h-4 w-4" />
+                  <Home className="h-4 w-4 cursor-pointer" />
+                  <Link href={"/dashboard_home"}>
                   <span>Dashboard</span>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>
                   <Users className="h-4 w-4" />
+                  <Link href={"/users"}>
                   <span>Users</span>
+                  
+                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
