@@ -36,14 +36,21 @@ export default function LoginPage() {
 
   const loginMutation = useMutation({
     mutationFn: async (data) => {
-      const res = await axios.post("http://localhost:4000/auth/login?lang=ar", data);
+      const res = await axios.post("http://localhost:4000/auth/login?", data);
       return res.data;
     },
     onSuccess: (data) => {
+      console.log("Login response:", data);
       if (typeof window !== 'undefined') {
-        localStorage.setItem("token", data.token); 
+        // استخراج الـ token من المكان الصحيح
+        const token = data.data?.credentials?.access_token;
+        if (token) {
+          localStorage.setItem("token", token);
+          router.push("/dashboard_home");
+        } else {
+          console.error("Token not found in response:", data);
+        }
       }
-      router.push("/dashboard_home"); 
     },
   });
 

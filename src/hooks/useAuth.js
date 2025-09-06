@@ -18,6 +18,9 @@ export function useAuth() {
           setIsAuthenticated(false);
           router.push("/signup");
         }
+      }if(typeof window ==='undefined'){
+         setIsAuthenticated(false);
+          router.push("/login");
       }
       setIsLoading(false);
     };
@@ -35,7 +38,7 @@ export function useAuthRedirect() {
     if (typeof window !== 'undefined') {
       const token = localStorage.getItem("token");
       if (!token) {
-        router.push("/signup");
+        router.push("/login");
       }
     }
   }, [router]);

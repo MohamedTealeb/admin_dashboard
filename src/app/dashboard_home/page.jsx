@@ -11,7 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Users, Package, Home } from "lucide-react"
+import { Users, Package, Home, User } from "lucide-react"
 import { Component as BarChart } from "@/components/section/chart.jsx";
 import { LineChartComponent as LineChart } from "@/components/section/line-chart.jsx";
 import { AreaChartComponent as AreaChart } from "@/components/section/area-chart.jsx";
@@ -43,6 +43,14 @@ export function AppSidebar() {
                   <span>Users</span>
                   
                    </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton>
+                  <User className="h-4 w-4" />
+                  <Link href={"/user"}>
+                    <span>Profile</span>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>

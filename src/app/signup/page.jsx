@@ -42,10 +42,8 @@ export default function SignupPage() {
       return res.data;
     },
     onSuccess: (data) => {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem("token", data.token); 
-      }
-      router.push("/login"); 
+      // Don't store token yet - user needs to verify email first
+      router.push(`/confirm-email?email=${encodeURIComponent(email)}`); 
     },
   });
 
